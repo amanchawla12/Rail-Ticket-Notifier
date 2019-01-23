@@ -79,7 +79,8 @@ function sendSMSIfThresholdReaches(railbody, threshold) {
             }
             var ticketLeft = availability[1];
             var threshold  = process.env.threshold || 50;
-            if(ticketLeft < threshold) {
+            
+            if(Number(ticketLeft) < Number(threshold)) {
                 client.messages
                     .create({
                         body: 'Only ' + ticketLeft + ' tickets left. Please Book ASAP for train ' + railbody.train.name + '.',
