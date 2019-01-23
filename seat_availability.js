@@ -78,6 +78,7 @@ function sendSMSIfThresholdReaches(railbody, threshold) {
                 return reject(new Error('Ticket Not Available'));
             }
             var ticketLeft = availability[1];
+            var threshold  = process.env.threshold || 50;
             if(ticketLeft < threshold) {
                 client.messages
                     .create({
@@ -85,10 +86,13 @@ function sendSMSIfThresholdReaches(railbody, threshold) {
                         from: '+14693788424',
                         to: process.env.to_phone
                     })
-                    .then(message => console.log(JSON.stringify(message)))
+                    .then(message => {
+                        console.log(JSON.stringify(message))
+                        return resolve('Message Sent');
+                    })
                     .catch(error => {
                         console.error(JSON.stringify(error));
-                        return reject(new Error('Error from twillio'));
+                        return reject(new Error('Error from twilio'));
                     })
             } else {
                 return resolve('Everything is good');
