@@ -1,0 +1,20 @@
+{
+  "name": "rail-ticket-noti",
+  "version": "1.0.0",
+  "description": "Deploying it on heroku",
+  "main": "app.js",
+  "scripts": {
+    "test": "node",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pg": "^7.8.0",
+    "request": "^2.88.0",
+    "twilio": "^3.27.1"
+  }
+}
